@@ -1,0 +1,25 @@
+WCS\CoavBundle\Entity\Flight:
+    type: entity
+    table: null
+    repositoryClass: WCS\CoavBundle\Repository\FlightRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        departure:
+            type: string
+            length: '4'
+        arrival:
+            type: string
+            length: '4'
+        freeSeats:
+            type: integer
+        takeofTime:
+            type: datetime
+        pilot:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
