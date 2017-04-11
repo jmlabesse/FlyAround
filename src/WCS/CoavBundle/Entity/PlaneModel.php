@@ -7,13 +7,8 @@ namespace WCS\CoavBundle\Entity;
  */
 class PlaneModel
 {
-    public function __toString()
-    {
-        return $this->model;
-    }
-
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -28,12 +23,12 @@ class PlaneModel
     private $manufacturer;
 
     /**
-     * @var int
+     * @var integer
      */
     private $cruiseSpeed;
 
     /**
-     * @var int
+     * @var integer
      */
     private $nbSeats;
 
@@ -42,11 +37,23 @@ class PlaneModel
      */
     private $status;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $flights;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->flights = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -118,7 +125,7 @@ class PlaneModel
     /**
      * Get cruiseSpeed
      *
-     * @return int
+     * @return integer
      */
     public function getCruiseSpeed()
     {
@@ -142,7 +149,7 @@ class PlaneModel
     /**
      * Get nbSeats
      *
-     * @return int
+     * @return integer
      */
     public function getNbSeats()
     {
@@ -172,57 +179,6 @@ class PlaneModel
     {
         return $this->status;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $planes;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->planes = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add plane
-     *
-     * @param \WCS\CoavBundle\Entity\Flight $plane
-     *
-     * @return PlaneModel
-     */
-    public function addPlane(\WCS\CoavBundle\Entity\Flight $plane)
-    {
-        $this->planes[] = $plane;
-
-        return $this;
-    }
-
-    /**
-     * Remove plane
-     *
-     * @param \WCS\CoavBundle\Entity\Flight $plane
-     */
-    public function removePlane(\WCS\CoavBundle\Entity\Flight $plane)
-    {
-        $this->planes->removeElement($plane);
-    }
-
-    /**
-     * Get planes
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPlanes()
-    {
-        return $this->planes;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $flights;
-
 
     /**
      * Add flight
@@ -258,3 +214,4 @@ class PlaneModel
         return $this->flights;
     }
 }
+

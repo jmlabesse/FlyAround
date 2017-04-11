@@ -8,7 +8,7 @@ namespace WCS\CoavBundle\Entity;
 class Reservation
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -18,15 +18,32 @@ class Reservation
     private $name;
 
     /**
-     * @var int
+     * @var integer
      */
     private $nbSeats;
 
+    /**
+     * @var \WCS\CoavBundle\Entity\Flight
+     */
+    private $flight;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $passengers;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->passengers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -74,23 +91,35 @@ class Reservation
     /**
      * Get nbSeats
      *
-     * @return int
+     * @return integer
      */
     public function getNbSeats()
     {
         return $this->nbSeats;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $passengers;
 
     /**
-     * Constructor
+     * Set flight
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $flight
+     *
+     * @return Reservation
      */
-    public function __construct()
+    public function setFlight(\WCS\CoavBundle\Entity\Flight $flight = null)
     {
-        $this->passengers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->flight = $flight;
+
+        return $this;
+    }
+
+    /**
+     * Get flight
+     *
+     * @return \WCS\CoavBundle\Entity\Flight
+     */
+    public function getFlight()
+    {
+        return $this->flight;
     }
 
     /**
@@ -126,33 +155,5 @@ class Reservation
     {
         return $this->passengers;
     }
-    /**
-     * @var \WCS\CoavBundle\Entity\Flight
-     */
-    private $flight;
-
-
-    /**
-     * Set flight
-     *
-     * @param \WCS\CoavBundle\Entity\Flight $flight
-     *
-     * @return Reservation
-     */
-    public function setFlight(\WCS\CoavBundle\Entity\Flight $flight = null)
-    {
-        $this->flight = $flight;
-
-        return $this;
-    }
-
-    /**
-     * Get flight
-     *
-     * @return \WCS\CoavBundle\Entity\Flight
-     */
-    public function getFlight()
-    {
-        return $this->flight;
-    }
 }
+

@@ -7,14 +7,8 @@ namespace WCS\CoavBundle\Entity;
  */
 class Terrain
 {
-
-    public function __toString()
-    {
-        return $this->name;
-    }
-
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -48,11 +42,29 @@ class Terrain
      */
     private $country;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $departures;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $arrivals;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->departures = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->arrivals = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -202,18 +214,6 @@ class Terrain
     {
         return $this->country;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $departures;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->departures = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add departure
@@ -248,11 +248,6 @@ class Terrain
     {
         return $this->departures;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $arrivals;
-
 
     /**
      * Add arrival
@@ -288,3 +283,4 @@ class Terrain
         return $this->arrivals;
     }
 }
+

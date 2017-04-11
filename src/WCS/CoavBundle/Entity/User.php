@@ -98,3 +98,4 @@ class User
         return $this->reservations;
     }
 }
+
