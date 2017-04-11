@@ -26,8 +26,8 @@ WCS\CoavBundle\Entity\Flight:
             inversedBy: arrivals
         plane:
             targetEntity: WCS\CoavBundle\Entity\PlaneModel
-            inversedBy: planes
+            inversedBy: flights
     oneToMany:
-        flights:
+        reservations:
             targetEntity: WCS\CoavBundle\Entity\Reservation
             mappedBy: flight
