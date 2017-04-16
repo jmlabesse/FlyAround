@@ -50,6 +50,11 @@ class PlaneModel
         $this->flights = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->model;
+    }
+
     /**
      * Get id
      *

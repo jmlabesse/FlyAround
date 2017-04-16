@@ -55,6 +55,11 @@ class Flight
         $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->takeofTime->format('d-m-Y') . " de " . $this->departure . " à " . $this->arrival ;
+    }
+
     /**
      * Get id
      *

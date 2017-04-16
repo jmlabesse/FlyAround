@@ -4,6 +4,47 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.admin.terrain:
+        class: WCS\CoavBundle\Admin\TerrainAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Données techniques", label: "Terrain" }
+        arguments:
+            - ~
+            - WCS\CoavBundle\Entity\Terrain
+            - ~
+
+    app.admin.user:
+        class: WCS\CoavBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Clients", label: "User" }
+        arguments:
+            - ~
+            - WCS\CoavBundle\Entity\User
+            - ~
+
+    app.admin.planemodel:
+        class: WCS\CoavBundle\Admin\PlaneModelAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Données techniques", label: "PlaneModel" }
+        arguments:
+            - ~
+            - WCS\CoavBundle\Entity\PlaneModel
+            - ~
+
+    app.admin.reservation:
+        class: WCS\CoavBundle\Admin\ReservationAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Commandes", label: "Reservation" }
+        arguments:
+            - ~
+            - WCS\CoavBundle\Entity\Reservation
+            - ~
+
+    app.admin.flight:
+        class: WCS\CoavBundle\Admin\FlightAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Commandes", label: "Flight" }
+        arguments:
+            - ~
+            - WCS\CoavBundle\Entity\Flight
+            - ~

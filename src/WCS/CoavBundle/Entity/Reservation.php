@@ -40,6 +40,11 @@ class Reservation
         $this->passengers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->name . " : " . $this->nbSeats . " sur " . $this->flight ;
+    }
+
     /**
      * Get id
      *
